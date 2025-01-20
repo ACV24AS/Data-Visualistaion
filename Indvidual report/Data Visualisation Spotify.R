@@ -114,7 +114,6 @@ ggplot(box_data, aes(x = explicit, y = value, fill = explicit)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for better readability
 
 
-# 2. What patterns exist in the relationship between audio features and track popularity across different genres?
 # Select numerical columns relevant to the analysis
 num_data <- spotify_data %>% 
   select(popularity, danceability, energy, valence, loudness, tempo, duration_ms)
@@ -130,14 +129,6 @@ ggcorrplot(cor_matrix,
            colors = c("red", "white", "blue"), # Red to blue color scale
            ggtheme = theme_minimal())  # Use a minimal theme
 
-# Create histogram to show distribution of popularity scores
-ggplot(spotify_data, aes(x = popularity)) +
-  geom_histogram(binwidth = 5, fill = "darkblue", color = "black", alpha = 0.7) +
-  labs(title = "Distribution of Popularity Scores", 
-       x = "Popularity", 
-       y = "Count") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for better readability
 # Create scatter plot for energy vs danceability, with popularity as color
 ggplot(spotify_data, aes(x = energy, y = danceability, color = popularity)) +
   geom_point(alpha = 0.7) +
