@@ -113,7 +113,6 @@ ggplot(box_data, aes(x = explicit, y = value, fill = explicit)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for better readability
 
 
-# 2. What patterns exist in the relationship between audio features and track popularity across different genres?
 # Select numerical columns relevant to the analysis
 num_data <- spotify_data %>% 
   select(popularity, danceability, energy, valence, loudness, tempo, duration_ms)
